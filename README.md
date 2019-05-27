@@ -1,6 +1,6 @@
 # Terraform AWS Bastion - Centos
 
-Terraform module for creating an Autoscaling group to create a CentOS Bastion on AWS. 
+Terraform module for creating an autoscaling group of CentOS Bastion hosts on AWS. 
 
 ## Usage
 
