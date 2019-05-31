@@ -29,7 +29,7 @@ variable "vpc_id" {
 }
 
 variable "security_group_ids" {
-  type = "string"
+  type = "list"
   description = "Security Group for Bastion Hosts"
 }
 
@@ -47,4 +47,10 @@ variable "volume_size" {
   type = "string"
   default = "20"
   description = "Root Volume Size for Bastion Host"
+}
+
+variable "instance_type" {
+  type = "string"
+  default = "t3.micro"
+  description = "Instance type for Bastion Host"
 }

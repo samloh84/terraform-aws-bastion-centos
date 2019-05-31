@@ -24,7 +24,7 @@ data "aws_ami" "centos" {
 }
 
 data "template_file" "user_data_bastion" {
-  template = "${file("${path.module}/user_data_bastion.yml")}"
+  template = "${file("${path.module}/user_data.yml")}"
 }
 
 
@@ -32,7 +32,7 @@ data "template_file" "user_data_bastion" {
 resource "aws_launch_template" "bastion" {
   name_prefix = "${var.project_name}_bastion"
   image_id = "${data.aws_ami.centos.id}"
-  instance_type = "t2.micro"
+  instance_type = "${var.instance_type}"
   vpc_security_group_ids = "${var.security_group_ids}"
 
   block_device_mappings {
@@ -49,7 +49,7 @@ resource "aws_launch_template" "bastion" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-      Name = "${var.owner_name}_bastion"
+      Name = "${var.project_name}_bastion"
     }
   }
 

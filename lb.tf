@@ -31,7 +31,7 @@ resource "aws_lb_target_group" "bastion" {
     enabled = false
     type = "lb_cookie"
   }
-  tags {
+  tags = {
     Name = "${var.project_name}-bastion"
     Owner = "${var.owner_name}"
   }
