@@ -1,6 +1,6 @@
 // https://www.terraform.io/docs/providers/aws/r/lb.html
 resource "aws_lb" "bastion" {
-  name = "${var.project_name}_bastion"
+  name = "${var.project_name}-bastion"
   internal = false
   load_balancer_type = "network"
   subnets = "${var.subnet_ids}"
