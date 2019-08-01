@@ -85,4 +85,10 @@ resource "aws_autoscaling_group" "bastion" {
     version = "$Latest"
   }
 
+  name = "${var.project_name}_bastion"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
 }
